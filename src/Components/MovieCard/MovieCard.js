@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import { Container } from '../../Containers/Containers'
 
 export const MovieCardContainer = styled(Container)`
-  flex: 0 0 15%;
-  height: 40vh;
+  flex: 0 0 250px;
+  height: 400px;
   border-radius: 20px;
   margin: 0 0 0 20px;
   transition: transform 300ms ease 100ms;
@@ -25,7 +25,7 @@ export const MovieCardContainer = styled(Container)`
   cursor: pointer;
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.13);
   }
 
   &:hover ~ & {

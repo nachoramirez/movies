@@ -11,20 +11,23 @@ import { useHistory } from 'react-router-dom'
 
 import StarIcon from '../../static/Star.svg'
 
-const MovieCard = ({ id }) => {
-  const image =
-    'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQTY8XcRK2qKQRYzRcBf_tEnrecd991e9Brr7vGPGfLCQqwIWCZ'
-
+const MovieCard = ({ data }) => {
   const history = useHistory()
 
+  const {id, title, vote_average, poster_path } = data
+
+  const image = `https://image.tmdb.org/t/p/w500/${poster_path}`
   return (
-    <MovieCardContainer onClick={() => history.push(`/movie/${id}`)} image={image}>
+    <MovieCardContainer
+      onClick={() => history.push(`/movie/${id}`)}
+      image={image}
+    >
       <ItemInfo>
-        <ItemTitle>Cruella Cruella </ItemTitle>
-        <p>Duracion: {id}h 40m</p>
+        <ItemTitle>{title} </ItemTitle>
+
         <ItemRating>
           <ItemRatingImage src={StarIcon} />
-          <ItemRatingValue>7.4/10</ItemRatingValue>
+          <ItemRatingValue>{vote_average}/10</ItemRatingValue>
         </ItemRating>
       </ItemInfo>
     </MovieCardContainer>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import { SliderContainer, SliderContent, Dot, DotsContainer } from './Slider'
 import SliderItem from '../SliderItem/SliderItem.jsx'
 import Arrows from './Arrows/Arrows.jsx'
@@ -8,7 +8,7 @@ const Slider = ({ slideItems }) => {
 
   const [activeIndex, setActiveIndex] = useState(0)
   const [translate, setTranslate] = useState(0)
-  const [transition, setTransition] = useState(0.5)
+  const transition = 0.5
 
   const nextSlide = () => {
     if (activeIndex === slideItems.length - 1) {
@@ -49,7 +49,7 @@ const Slider = ({ slideItems }) => {
         width={getWidth() * slideItems.length}
       >
         {slideItems.map((item) => (
-          <SliderItem key={item} image={item} />
+          <SliderItem key={item.id} data={item} />
         ))}
       </SliderContent>
       <Arrows handleClick={() => nextSlide()} direction={'right'} />

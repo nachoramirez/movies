@@ -1,51 +1,55 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   CarrouselContainer,
   CarrouselWrapper,
   CarrouselArrows,
+  CarrouselDotsContainer,
+  CarrouselDot,
 } from './Carrousel'
 import RightCarrousel from '../../static/RightCarrousel.svg'
 import LeftCarrousel from '../../static/LeftCarrousel.svg'
 
+import useSlibing from '../../hooks/useSliding'
+
 const Carrousel = ({ children }) => {
-  const getWindowWidth = () => window.innerWidth
-  const [translate, setTranslate] = useState(0)
-  const [viewed, setViewed] = useState(0)
-  const ItemWidth = getWindowWidth() * 0.15 + 20
-  const totalInViewport = Math.floor(getWindowWidth() / ItemWidth)
-  const totalItems = React.Children.count(children)
+  const clones = 7
+  const {
+    handleNext,
+    handlePrev,
+    translate,
+    transition,
+    dotsToShow,
+    activeDot,
+  } = useSlibing(children,clones)
 
-  const handleNext = () => {
-    if (viewed + totalInViewport < totalItems) {
-      setTranslate(translate + getWindowWidth())
-      setViewed(viewed + totalInViewport)
-    } else {
-      setTranslate(0)
-      setViewed(0)
-    }
-  }
+  //gets the first elements to clone
+  const fisrtChildrens = React.Children.toArray(children.slice(0, clones))
+  const lastChildrens = React.Children.toArray(
+    children.slice(React.Children.toArray.length - clones)
+  )
 
-  const handlePrev = () => {
-    if (translate > 0) {
-      setTranslate(translate - getWindowWidth())
-      setViewed(viewed - totalInViewport)
-    } else {
-      setTranslate(
-        Math.floor(totalItems / totalInViewport - 1) * getWindowWidth()
-      )
-      setViewed(totalItems)
-    }
-  }
 
   return (
     <CarrouselContainer>
-      <CarrouselWrapper distance={translate}>{children}</CarrouselWrapper>
+      <CarrouselWrapper transition={transition} distance={translate}>
+        {lastChildrens.map((item) => React.cloneElement(item))}
+        {children}
+        {
+          //clones the first elements to show at the end of the carrousel
+          fisrtChildrens.map((item) => React.cloneElement(item))
+        }
+      </CarrouselWrapper>
       <CarrouselArrows
         onClick={handleNext}
         src={RightCarrousel}
         direction={'right'}
       />
       <CarrouselArrows src={LeftCarrousel} onClick={handlePrev} />
+      <CarrouselDotsContainer>
+        {dotsToShow.map((item) => (
+          <CarrouselDot key={item} selected={item === activeDot} />
+        ))}
+      </CarrouselDotsContainer>
     </CarrouselContainer>
   )
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router'
 import {
   SliderItemContainer,
   SliderInfo,
@@ -7,30 +8,29 @@ import {
   SliderNumbers,
   ViewMoreButton,
   RatingImage,
-  SliderNumbersValues
+  SliderNumbersValues,
 } from './SliderItem'
 
 import Star from '../../static/Star.svg'
 
-export const SliderItem = ({ image }) => {
+export const SliderItem = ({ data }) => {
+  const history = useHistory()
+
+  const { id, title, vote_average, backdrop_path, overview,release_date } = data
+
+  const image = `https://image.tmdb.org/t/p/original/${backdrop_path}`
+
   return (
     <SliderItemContainer image={image}>
       <SliderInfo>
-        <SliderInfoTitle> Fast & Furious 7</SliderInfoTitle>
-        <SliderInfoDescription>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-          ultricies elit, in non. Eget aliquam nunc felis, tempor. Risus libero,
-          dictum velit, venenatis. Ultrices faucibus egestas auctor lectus
-          mattis tempus. Eleifend at nascetur vel consectetur arcu pellentesque
-          dignissim. Malesuada sed sed neque semper enim malesuada. Ultricies et
-          a ac bibendum diam amet.
-        </SliderInfoDescription>
+        <SliderInfoTitle> {title}</SliderInfoTitle>
+        <SliderInfoDescription>{overview}</SliderInfoDescription>
         <SliderNumbers>
-          <RatingImage src={Star}/>
-          <SliderNumbersValues>8.5</SliderNumbersValues>
-          <SliderNumbersValues> 2h 20m</SliderNumbersValues>
+          <RatingImage src={Star} />
+          <SliderNumbersValues>{vote_average}</SliderNumbersValues>
+          <SliderNumbersValues> {release_date}</SliderNumbersValues>
         </SliderNumbers>
-        <ViewMoreButton>
+        <ViewMoreButton onClick={() => history.push(`/movie/${id}`)}>
           View More
         </ViewMoreButton>
       </SliderInfo>

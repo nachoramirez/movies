@@ -1,16 +1,18 @@
 import React from 'react'
-import { MovieImages, MoviePhotosContainer,MoviePhotosTitle } from './MoviePhotos'
+import {
+  MovieImages,
+  MoviePhotosContainer,
+  MoviePhotosTitle,
+} from './MoviePhotos'
 
-const MoviePhotos = () => {
+const MoviePhotos = ({ photos }) => {
   return (
     <>
-    <MoviePhotosTitle> Photos</MoviePhotosTitle>
+      <MoviePhotosTitle> Photos</MoviePhotosTitle>
       <MoviePhotosContainer>
-        <MovieImages img="https://image.tmdb.org/t/p/original/sgHmoqF97bjM1HUyw43FzjzXtEr.jpg" />
-        <MovieImages img="https://image.tmdb.org/t/p/original/sgHmoqF97bjM1HUyw43FzjzXtEr.jpg" />
-        <MovieImages img="https://image.tmdb.org/t/p/original/sgHmoqF97bjM1HUyw43FzjzXtEr.jpg" />
-        <MovieImages img="https://image.tmdb.org/t/p/original/sgHmoqF97bjM1HUyw43FzjzXtEr.jpg" />
-        <MovieImages img="https://image.tmdb.org/t/p/original/sgHmoqF97bjM1HUyw43FzjzXtEr.jpg" />
+        {photos.map((item) => (
+          <MovieImages ley={item.id} img={`https://image.tmdb.org/t/p/original${item.file_path}`} />
+        ))}
       </MoviePhotosContainer>
     </>
   )

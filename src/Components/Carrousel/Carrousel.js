@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 export const CarrouselContainer = styled.div`
-  padding: 40px 0;
+  padding: 60px 0;
   overflow: hidden;
   position: relative;
 `
 
 export const CarrouselWrapper = styled.div`
   display: flex;
-  position: relative;
   transform: translate3d(${(props) => -props.distance}px, 0, 0);
-  transition: transform 300ms cubic-bezier(0.64, -0.04, 0.26, 0.94) 100ms;
+  transition: transform ${(props) => props.transition}ms
+    cubic-bezier(0.64, -0.04, 0.26, 0.94);
 `
 export const CarrouselArrows = styled.img`
   position: absolute;
@@ -21,7 +21,25 @@ export const CarrouselArrows = styled.img`
   cursor: pointer;
   transition: transform ease-in 0.1s;
 
-  &:hover{
+  &:hover {
     transform: scale(1.1);
   }
+`
+export const CarrouselDot = styled.span`
+  padding: ${props => props.selected ? '14px' : '8px'};
+  margin-right: 10px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.44);
+  border: 1px solid #9bf2d6;
+  transition: 0.45s;
+`
+
+export const CarrouselDotsContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 15px;
+  bottom: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `

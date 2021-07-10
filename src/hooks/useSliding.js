@@ -1,0 +1,77 @@
+import React, { useState } from 'react'
+
+const useSlibing = (children, clones) => {
+  const ItemWidth = 250 + 20
+  const getWindowWidth = () => window.innerWidth
+  const initialTranslate = (clones - 1) * ItemWidth
+  const [viewed, setViewed] = useState(0)
+  const [transition, setTransition] = useState(300)
+  const [activeDot, setActiveDot] = useState(0)
+  const [translate, setTranslate] = useState(initialTranslate)
+
+  const totalInViewport = Math.floor(getWindowWidth() / ItemWidth)
+  const totalItems = React.Children.count(children)
+
+  //creates an array with total transitions made by the slider
+  const dotsToShow = []
+  for (let i = 0; i < totalItems / totalInViewport; i++) {
+    dotsToShow.push(i)
+  }
+
+  const handleNext = () => {
+    if (viewed + totalInViewport < totalItems) {
+      setTransition(300)
+      setTranslate(translate + ItemWidth * totalInViewport)
+      setViewed(viewed + totalInViewport)
+      setActiveDot(activeDot + 1)
+      console.log('next:', translate, viewed, initialTranslate)
+    } else {
+      //if the total viewed is higher than total items,
+      //the slider slides to the element after the last slide
+      setTranslate(translate + ItemWidth * (totalItems - viewed))
+      setViewed(viewed + totalInViewport)
+      setTransition(300)
+      setActiveDot(0)
+      //and then slices to the first item without transition
+      setTimeout(() => {
+        setTranslate(initialTranslate)
+        setTransition(0)
+        setViewed(0)
+      }, 300)
+    }
+  }
+
+  const handlePrev = () => {
+    if (viewed  > 0) {
+      setTransition(300)
+      setTranslate(translate - ItemWidth * totalInViewport)
+      setViewed(viewed - totalInViewport)
+      setActiveDot(activeDot - 1)
+    } else{
+      //if the viewed items is lower than 0 
+      //the slider slides to the previus slide (clone)
+      setTransition(300)
+      setTranslate(translate - ItemWidth * totalInViewport)
+      setActiveDot(dotsToShow.length - 1)
+      //and then slides to the real childen without transition
+      setTimeout(() => {
+        setTransition(0)
+        setTranslate(
+          (clones - 1 + totalItems - viewed - totalInViewport) * ItemWidth
+        )
+        setViewed(totalItems - viewed - 4)
+      }, 300)
+    }
+  }
+
+  return {
+    handleNext,
+    handlePrev,
+    translate,
+    transition,
+    dotsToShow,
+    activeDot,
+  }
+}
+
+export default useSlibing

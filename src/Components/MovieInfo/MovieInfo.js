@@ -6,22 +6,19 @@ export const MovieInfoContainer = styled(Container)`
   padding: 0 20px 0 40px;
 `
 export const Category = styled.button`
-  height: 60px;
-  width: 150px;
+  height: 70px;
+  width: 170px;
   background: none;
   border-radius: 50px;
   border: 2px solid #9bf2d6;
-  color: white;
-  font-weight: 300;
-  font-size: 22px;
-  margin: 1px 10px;
   cursor: pointer;
+  margin: 5px 10px;
 `
 export const MoreInfoContainer = styled.div`
   width: 60%;
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 600px;
 `
 export const Info = styled.h1`
   color: white;
@@ -38,4 +35,11 @@ export const Trailer = styled.div`
   width: 40%;
   padding-left: 20px;
   height: 100%;
+`
+
+export const CategoryTitle = styled.h1`
+  color: white;
+  font-weight: 300;
+  font-size: 18px;
+  text-align: center;
 `

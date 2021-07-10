@@ -1,26 +1,40 @@
 import React from 'react'
 import Slider from '../../Components/Slider/Slider.jsx'
-
+import useCallApi from '../../hooks/useCallApi.js'
+import Loading from '../../Components/Loading/Loading.jsx'
 
 import CarroselContainer from '../CarrouselContainer/CarrouselContainer.jsx'
 
 const Home = () => {
-  const slideItems = [
-    'https://media.vanityfair.com/photos/5626b4a16015429a1debd21e/5:3/w_1440,h_864,c_limit/furious-7-walker-scenes-digitally-recreated.jpg',
-    'https://i0.wp.com/prensaarizona.com/wp-content/uploads/2021/01/91-Columna-Cinexperto2.jpg?fit=1920%2C1080&ssl=1',
-    'https://www.bandassonoras.co/wp-content/uploads/2021/03/The-War-With-Grandpa-1920x1080-71b83ec7-ac51-41a2-900f-ca13bedd2f4b.jpg',
-    'https://i1.wp.com/hipertextual.com/wp-content/uploads/2021/04/mortal_kombat_simon_mcquoid.jpg?fit=1200%2C800&ssl=1',
-    'https://hbomax-images.warnermediacdn.com/images/GXdu2ZAglVJuAuwEAADbA/tileburnedin?size=1280x720&partner=hbomaxcom&host=artist.api.cdn.hbo.com&w=1280',
-  ]
+  const nowPlaying = useCallApi(
+    'https://api.themoviedb.org/3/movie/now_playing?api_key=ec4b3e3a8cd0222860f2fbc8738e8731'
+  )
+  const trending = useCallApi(
+    'https://api.themoviedb.org/3/trending/movie/week?api_key=ec4b3e3a8cd0222860f2fbc8738e8731'
+  )
 
+  const popular = useCallApi(
+    'https://api.themoviedb.org/3/movie/popular?api_key=ec4b3e3a8cd0222860f2fbc8738e8731'
+  )
 
+  const topRated = useCallApi(
+    'https://api.themoviedb.org/3/movie/top_rated?api_key=ec4b3e3a8cd0222860f2fbc8738e8731'
+  )
 
-  return (
+  const isLoading =
+    nowPlaying.results === undefined ||
+    trending.results === undefined ||
+    popular.results === undefined ||
+    topRated.results === undefined
+
+  return isLoading ? (
+    <Loading />
+  ) : (
     <>
-      <Slider slideItems={slideItems} />
-      <CarroselContainer/>
-      <CarroselContainer/>
-      <CarroselContainer/>
+      <Slider slideItems={nowPlaying.results.slice(0, 5)} />
+      <CarroselContainer name="Trending" data={trending.results} />
+      <CarroselContainer name="Popular" data={popular.results} />
+      <CarroselContainer name="Top rated" data={topRated.results} />
     </>
   )
 }
