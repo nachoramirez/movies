@@ -14,6 +14,7 @@ import useSlibing from '../../hooks/useSliding'
 const Carrousel = ({ children }) => {
   const clones = 7
   const {
+    handleDots,
     handleNext,
     handlePrev,
     translate,
@@ -47,7 +48,7 @@ const Carrousel = ({ children }) => {
       <CarrouselArrows src={LeftCarrousel} onClick={handlePrev} />
       <CarrouselDotsContainer>
         {dotsToShow.map((item) => (
-          <CarrouselDot key={item} selected={item === activeDot} />
+          <CarrouselDot onClick={() =>handleDots(item)}key={item} selected={item === activeDot} />
         ))}
       </CarrouselDotsContainer>
     </CarrouselContainer>

@@ -32,6 +32,7 @@ export const CarrouselDot = styled.span`
   background: rgba(0, 0, 0, 0.44);
   border: 1px solid #9bf2d6;
   transition: 0.45s;
+  cursor: pointer;
 `
 
 export const CarrouselDotsContainer = styled.div`

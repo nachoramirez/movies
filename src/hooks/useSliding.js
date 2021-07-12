@@ -11,7 +11,10 @@ const useSlibing = (children, clones) => {
 
   const totalInViewport = Math.floor(getWindowWidth() / ItemWidth)
   const totalItems = React.Children.count(children)
-  const totalSlides = Math.floor(totalItems / totalInViewport)
+  const totalSlides =
+    (totalItems / totalInViewport) % 1 === 0
+      ? totalItems / totalInViewport - 1
+      : Math.floor(totalItems / totalInViewport)
 
   //creates an array with total transitions made by the slider
   const dotsToShow = []
@@ -28,11 +31,12 @@ const useSlibing = (children, clones) => {
     } else {
       //if the total viewed is higher than total items,
       //the slider slides to the element after the last slide
-      setTranslate(translate + ItemWidth * (totalItems - totalSlides * totalInViewport))
+      setTranslate(translate + ItemWidth * (totalItems - viewed))
       setViewed(viewed + totalInViewport)
       setTransition(300)
       setActiveDot(0)
       //and then slices to the first item without transition
+      console.log((totalItems / totalInViewport) % 1 === 0)
       setTimeout(() => {
         setTranslate(initialTranslate)
         setTransition(0)
@@ -66,6 +70,13 @@ const useSlibing = (children, clones) => {
     }
   }
 
+  const handleDots = (index) => {
+    setActiveDot(index)
+    setTransition(300)
+    setTranslate(index * totalInViewport * ItemWidth + initialTranslate)
+    setViewed(index * totalInViewport)
+  }
+
   return {
     handleNext,
     handlePrev,
@@ -73,6 +84,7 @@ const useSlibing = (children, clones) => {
     transition,
     dotsToShow,
     activeDot,
+    handleDots,
   }
 }
 
