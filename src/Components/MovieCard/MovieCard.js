@@ -3,7 +3,7 @@ import { Container } from '../../Containers/Containers'
 
 export const MovieCardContainer = styled(Container)`
   flex: 0 0 250px;
-  height: 400px;
+  height: 100%;
   border-radius: 20px;
   margin: 0 0 0 20px;
   transition: transform 300ms ease 100ms;

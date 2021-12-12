@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+
 import {
   HeaderContainer,
   NavBarContainer,
@@ -8,32 +10,45 @@ import {
   NavBarHome,
   Search,
   SearchInput,
-  SearchButton
+  SearchButton,
 } from './Header'
-
-import { useHistory } from 'react-router-dom'
+import Genres from '../Genres/Genres.jsx'
 
 import HomeIcon from '../../static/HomeIcon.svg'
 import SearchIcon from '../../static/SearchIcon.svg'
+import LogoImage from '../../static/Logo.svg'
 
 const Header = () => {
-
   const history = useHistory()
+  const [value, setValue] = useState()
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    history.push(`/search/${value}`)
+  }
 
   return (
     <HeaderContainer>
-      <Logo src='' />
+      <Logo onClick={() => history.push('/')} src={LogoImage} />
       <NavBarContainer>
-        <NavBarHome onClick={() => history.push('/')}>
+        {/* <NavBarHome onClick={() => history.push('/')}>
           <HomeLogo src={HomeIcon} />
           <NavBarItem>Home</NavBarItem>
-        </NavBarHome>
+        </NavBarHome> */}
         <NavBarItem>Premiere</NavBarItem>
         <NavBarItem>Series</NavBarItem>
-        <NavBarItem>Genres</NavBarItem>
-        <Search>
-          <SearchInput type="text" placeholder="Search..."></SearchInput>
-          <SearchButton src={SearchIcon}/>
+        <Genres>Genres</Genres>
+        <Search onSubmit={handleSubmit}>
+          <SearchInput
+            type="text"
+            placeholder="Search..."
+            onChange={handleChange}
+          />
+          <SearchButton src={SearchIcon} type="image" onClick={handleSubmit} />
         </Search>
       </NavBarContainer>
     </HeaderContainer>

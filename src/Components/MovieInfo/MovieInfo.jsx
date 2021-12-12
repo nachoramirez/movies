@@ -14,14 +14,9 @@ const MovieInfo = ({ data, videos, credits }) => {
   const hours = Math.floor(runtime / 60)
   const minutes = runtime % 60
 
-  const { key } = videos.results[0]
-
   const { cast, crew } = credits
 
-  const director = crew.find(
-    element => element.job == "Director"
-  )
-
+  const director = crew.find((element) => element.job == 'Director')
 
   return (
     <MovieInfoContainer>
@@ -46,7 +41,10 @@ const MovieInfo = ({ data, videos, credits }) => {
         <iframe
           height="300"
           width="100%"
-          src={`https://www.youtube.com/embed/${key}`}
+          src={`https://www.youtube.com/embed/${
+            videos.results[0] === undefined ? 0 : videos.results[0].key
+          }
+            `}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

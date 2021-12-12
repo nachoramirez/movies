@@ -7,14 +7,10 @@ export const HeaderContainer = styled(Container)`
   justify-content: space-between;
   padding: 4px 10px;
 `
-export const HomeLogo = styled.img`
-  height: 20px;
-  transition: 300ms linear;
-`
 export const NavBarContainer = styled(Container)`
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 15px 4px 15px 15px;
-  width: 70%;
+  width: 75%;
 `
 
 export const NavBarItem = styled.h2`
@@ -25,21 +21,27 @@ export const NavBarItem = styled.h2`
     font-size: 1.75rem;
   }
 `
-export const NavBarHome = styled.div`
-  align-items: center;
-  display: flex;
-  margin: 0 15px;
-  transition: 300ms linear;
-  cursor: pointer;
-  &:hover ${HomeLogo} {
-    height: 1.75em;
-  }
-  &:hover ${NavBarItem} {
-    font-size: 1.75rem;
-  }
-`
+// export const HomeLogo = styled.img`
+//   height: 20px;
+//   transition: 300ms linear;
+// `
+// export const NavBarHome = styled.div`
+//   align-items: center;
+//   display: flex;
+//   margin: 0 15px;
+//   transition: 300ms linear;
+//   cursor: pointer;
+//   &:hover ${HomeLogo} {
+//     height: 1.75em;
+//   }
+//   &:hover ${NavBarItem} {
+//     font-size: 1.75rem;
+//   }
+// `
 export const Logo = styled.img`
-  height: 70px;
+  height: 50px;
+  padding-left: 10px;
+  cursor: pointer;
 `
 
 export const Search = styled.form`
@@ -48,7 +50,7 @@ export const Search = styled.form`
   background: none;
   margin-left: 5em;
   height: 25px;
-  width: 320px;
+  width: 400px;
   padding: 5px 15px 5px 25px;
   text-decoration: none;
   border: 2px solid #9bf2d6;
@@ -68,7 +70,7 @@ export const SearchInput = styled.input`
     color: #9bf2d6;
   }
 `
-export const SearchButton = styled.img`
-  height: 30px;
-  align-self: flex-end;
+export const SearchButton = styled.input`
+  height: 90%;
+  align-self: center;
 `

@@ -9,14 +9,17 @@ import {
 } from './MovieCard'
 import { useHistory } from 'react-router-dom'
 
+import ImageNotFound from '../../static/ImageNotFound.svg'
 import StarIcon from '../../static/Star.svg'
 
 const MovieCard = ({ data }) => {
   const history = useHistory()
 
-  const {id, title, vote_average, poster_path } = data
+  const { id, title, vote_average, poster_path } = data
 
-  const image = `https://image.tmdb.org/t/p/w500/${poster_path}`
+  const image = poster_path
+    ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+    : ImageNotFound
   return (
     <MovieCardContainer
       onClick={() => history.push(`/movie/${id}`)}

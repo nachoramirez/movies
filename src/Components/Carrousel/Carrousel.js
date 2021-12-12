@@ -7,6 +7,7 @@ export const CarrouselContainer = styled.div`
 `
 
 export const CarrouselWrapper = styled.div`
+  height: 400px;
   display: flex;
   transform: translate3d(${(props) => -props.distance}px, 0, 0);
   transition: transform ${(props) => props.transition}ms
@@ -15,7 +16,7 @@ export const CarrouselWrapper = styled.div`
 export const CarrouselArrows = styled.img`
   position: absolute;
   top: 35%;
-  ${(props) => (props.direction === 'right' ? `right: 0` : `left: 0`)};
+  ${(props) => (props.direction === 'right' ? `right: -10px` : `left: -10px`)};
   height: 100px;
   width: 50px;
   cursor: pointer;
@@ -26,7 +27,7 @@ export const CarrouselArrows = styled.img`
   }
 `
 export const CarrouselDot = styled.span`
-  padding: ${props => props.selected ? '14px' : '8px'};
+  padding: ${(props) => (props.selected ? '14px' : '8px')};
   margin-right: 10px;
   border-radius: 20px;
   background: rgba(0, 0, 0, 0.44);
