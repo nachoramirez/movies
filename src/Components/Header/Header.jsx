@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import {
   HeaderContainer,
@@ -11,29 +11,29 @@ import {
   Search,
   SearchInput,
   SearchButton,
-} from './Header'
-import Genres from '../Genres/Genres.jsx'
+} from "./Header";
+import Genres from "../Genres/Genres.jsx";
 
-import HomeIcon from '../../static/HomeIcon.svg'
-import SearchIcon from '../../static/SearchIcon.svg'
-import LogoImage from '../../static/Logo.svg'
+import HomeIcon from "../../static/HomeIcon.svg";
+import SearchIcon from "../../static/SearchIcon.svg";
+import LogoImage from "../../static/Logo.svg";
 
 const Header = () => {
-  const history = useHistory()
-  const [value, setValue] = useState()
+  const history = useHistory();
+  const [value, setValue] = useState();
 
   const handleChange = (event) => {
-    setValue(event.target.value)
-  }
+    setValue(event.target.value);
+  };
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    history.push(`/search/${value}`)
-  }
+    event.preventDefault();
+    history.push(`/search/${value}`);
+  };
 
   return (
     <HeaderContainer>
-      <Logo onClick={() => history.push('/')} src={LogoImage} />
+      <Logo onClick={() => history.push("/")} src={LogoImage} />
       <NavBarContainer>
         {/* <NavBarHome onClick={() => history.push('/')}>
           <HomeLogo src={HomeIcon} />
@@ -42,17 +42,17 @@ const Header = () => {
         <NavBarItem>Premiere</NavBarItem>
         <NavBarItem>Series</NavBarItem>
         <Genres>Genres</Genres>
-        <Search onSubmit={handleSubmit}>
-          <SearchInput
-            type="text"
-            placeholder="Search..."
-            onChange={handleChange}
-          />
-          <SearchButton src={SearchIcon} type="image" onClick={handleSubmit} />
-        </Search>
       </NavBarContainer>
+      <Search onSubmit={handleSubmit}>
+        <SearchInput
+          type4="text"
+          placeholder="Search..."
+          onChange={handleChange}
+        />
+        <SearchButton src={SearchIcon} type="image" onClick={handleSubmit} />
+      </Search>
     </HeaderContainer>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

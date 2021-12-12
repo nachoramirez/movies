@@ -39,7 +39,7 @@ export const CarrouselDot = styled.span`
 export const CarrouselDotsContainer = styled.div`
   position: absolute;
   width: 100%;
-  height: 15px;
+  height: 20px;
   bottom: 7px;
   display: flex;
   align-items: center;

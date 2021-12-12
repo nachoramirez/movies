@@ -6,11 +6,11 @@ export const HeaderContainer = styled(Container)`
   color: #9bf2d6;
   justify-content: space-between;
   padding: 4px 10px;
+  margin: 10px 0 ;
 `
 export const NavBarContainer = styled(Container)`
-  justify-content: space-between;
-  padding: 15px 4px 15px 15px;
-  width: 75%;
+  justify-content: right;
+  width: 60%;
 `
 
 export const NavBarItem = styled.h2`
@@ -18,7 +18,7 @@ export const NavBarItem = styled.h2`
   transition: 300ms linear;
   cursor: pointer;
   &:hover {
-    font-size: 1.75rem;
+    font-size: 1.75em;
   }
 `
 // export const HomeLogo = styled.img`
@@ -40,7 +40,6 @@ export const NavBarItem = styled.h2`
 // `
 export const Logo = styled.img`
   height: 50px;
-  padding-left: 10px;
   cursor: pointer;
 `
 
