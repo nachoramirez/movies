@@ -22,8 +22,9 @@ export const GenresTitle = styled.h2`
   margin: 0 15px;
   cursor: pointer;
   transition: 500ms;
+  font-size: ${props => props.isActive ? '1.75em' : '1.5em'};
   &:hover {
-    font-size: 1.75rem;
+    font-size: 1.75em;
   }
 `
 

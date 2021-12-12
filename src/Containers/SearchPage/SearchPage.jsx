@@ -1,20 +1,25 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
-import { SearchPageContainer, SearchTile, Image} from './SearchPage'
+import React from "react";
+import { useHistory } from "react-router-dom";
+import { SearchPageContainer, SearchTile, Image } from "./SearchPage";
 
-import SearchResults from '../../Components/SearchResults/SearchResults.jsx'
-import Loading from '../../Components/Loading/Loading.jsx'
-import useCallApi from '../../hooks/useCallApi'
+import SearchResults from "../../Components/SearchResults/SearchResults.jsx";
+import Loading from "../../Components/Loading/Loading.jsx";
+import useCallApi from "../../hooks/useCallApi";
 
-import LogoSurprised from '../../static/LogoSurprised.svg'
+import LogoSurprised from "../../static/LogoSurprised.svg";
 
 const SearchPage = () => {
-  const history = useHistory()
+  const history = useHistory();
 
-  const searchName = history.location.pathname.substring(8)
-  const API = `https://api.themoviedb.org/3/search/movie?api_key=ec4b3e3a8cd0222860f2fbc8738e8731&query=${searchName}`
+  const searchName = history.location.pathname.substring(8);
+  const API = `https://api.themoviedb.org/3/search/movie`;
+  
 
-  const searchResponse = useCallApi(API, searchName)
+  const searchResponse = useCallApi({
+    api: API ,
+    params: { api_key: "ec4b3e3a8cd0222860f2fbc8738e8731", query: searchName },
+    updater: searchName,
+  });
 
   return searchResponse.results === undefined ? (
     <Loading />
@@ -32,7 +37,7 @@ const SearchPage = () => {
         </>
       )}
     </SearchPageContainer>
-  )
-}
+  );
+};
 
-export default SearchPage
+export default SearchPage;
