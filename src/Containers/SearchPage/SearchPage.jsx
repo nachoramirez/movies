@@ -4,6 +4,7 @@ import { SearchPageContainer, SearchTile, Image } from "./SearchPage";
 
 import SearchResults from "../../Components/SearchResults/SearchResults.jsx";
 import Loading from "../../Components/Loading/Loading.jsx";
+import ButtonPages from "../../Components/ButtonPages/ButtonPages.jsx";
 import useCallApi from "../../hooks/useCallApi";
 
 import LogoSurprised from "../../static/LogoSurprised.svg";
@@ -13,10 +14,9 @@ const SearchPage = () => {
 
   const searchName = history.location.pathname.substring(8);
   const API = `https://api.themoviedb.org/3/search/movie`;
-  
 
   const searchResponse = useCallApi({
-    api: API ,
+    api: API,
     params: { api_key: "ec4b3e3a8cd0222860f2fbc8738e8731", query: searchName },
     updater: searchName,
   });
@@ -34,6 +34,7 @@ const SearchPage = () => {
         <>
           <SearchTile>Your Search results: {searchName}</SearchTile>
           <SearchResults results={searchResponse.results} />)
+          <ButtonPages> hola</ButtonPages>
         </>
       )}
     </SearchPageContainer>

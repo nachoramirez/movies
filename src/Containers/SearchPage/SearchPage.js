@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import { Container } from "../Containers";
 
-export const SearchPageContainer = styled(Container)`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270 px, 1fr));
-  align-items: center;
+export const SearchPageContainer = styled.div`
+  width: 70%;
+  margin: 0 auto;
 `;
 
 export const SearchTile = styled.h1`
