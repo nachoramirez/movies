@@ -2,9 +2,8 @@ import styled from 'styled-components'
 
 export const ButtonPagesContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   margin: 0 auto;
-  width: 40%;
 `
 
 export const ButtonPage = styled.h1`
@@ -18,13 +17,13 @@ export const ButtonPage = styled.h1`
   border-radius: 100%;
   border: ${(props) => (props.selected ? 'solid white 2px' : 'rgba(0, 160, 122, 0.35)')};
   cursor: pointer;
-  margin: 40px 0;
+  margin: 40px 5px;
 `
 
 export const ButtonArrow = styled.img`
   height: 40px;
   cursor: pointer;
-  margin: 40px 0;
+  margin: 40px 20px;
 `
 
 // rgba(0, 0, 0, 0.44)

@@ -11,7 +11,7 @@ const ButtonPages = ({ totalPages, currentPage, searchName }) => {
 
   var pagesNumber = []
 
-  for (let i = 0; i < totalPages && i < 5; i++) {
+  for (let i = 0; i < totalPages; i++) {
     pagesNumber.push(i + 1)
   }
 
@@ -37,7 +37,7 @@ const ButtonPages = ({ totalPages, currentPage, searchName }) => {
 
       <ButtonArrow
         onClick={() =>
-          currentPage < 5 && currentPage < totalPages 
+          currentPage < totalPages
             ? history.push(`/search?q=${searchName}&page=${currentPage + 1}`)
             : null
         }

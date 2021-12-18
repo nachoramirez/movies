@@ -14,8 +14,6 @@ const SearchPage = () => {
   let query = useQuery()
   const history = useHistory()
 
-  console.log(history)
-
   const searchName = query.get('q')
   const page = query.get('page')
   const API = `https://api.themoviedb.org/3/search/movie`

@@ -8,7 +8,7 @@ export const SearchResultsContainer = styled.div`
 `;
 
 export const SearchCard = styled.div`
-  margin: 20px 7px;
+  margin: 10px 4px;
   width: 100%;
-  height: 34vh;
+  aspect-ratio: 1/1.5;
 `;

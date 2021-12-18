@@ -38,11 +38,15 @@ export const ItemInfo = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-
 `
 export const ItemTitle = styled.h1`
   margin: 0;
   font-size: 1.4rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 export const ItemRatingImage = styled.img`
     height: 30px;
