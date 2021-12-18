@@ -1,25 +1,34 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import { SearchPageContainer, SearchTile, Image } from "./SearchPage";
+import React from 'react'
+import { useHistory } from 'react-router-dom'
+import { SearchPageContainer, SearchTile, Image } from './SearchPage'
 
-import SearchResults from "../../Components/SearchResults/SearchResults.jsx";
-import Loading from "../../Components/Loading/Loading.jsx";
-import ButtonPages from "../../Components/ButtonPages/ButtonPages.jsx";
-import useCallApi from "../../hooks/useCallApi";
+import SearchResults from '../../Components/SearchResults/SearchResults.jsx'
+import Loading from '../../Components/Loading/Loading.jsx'
+import ButtonPages from '../../Components/ButtonPages/ButtonPages.jsx'
+import useCallApi from '../../hooks/useCallApi'
+import useQuery from '../../hooks/useQuery'
 
-import LogoSurprised from "../../static/LogoSurprised.svg";
+import LogoSurprised from '../../static/LogoSurprised.svg'
 
 const SearchPage = () => {
-  const history = useHistory();
+  let query = useQuery()
+  const history = useHistory()
 
-  const searchName = history.location.pathname.substring(8);
-  const API = `https://api.themoviedb.org/3/search/movie`;
+  console.log(history)
+
+  const searchName = query.get('q')
+  const page = query.get('page')
+  const API = `https://api.themoviedb.org/3/search/movie`
 
   const searchResponse = useCallApi({
     api: API,
-    params: { api_key: "ec4b3e3a8cd0222860f2fbc8738e8731", query: searchName },
-    updater: searchName,
-  });
+    params: {
+      api_key: 'ec4b3e3a8cd0222860f2fbc8738e8731',
+      query: searchName,
+      page: page === undefined ? 1 : page,
+    },
+    updater: history.location.search,
+  })
 
   return searchResponse.results === undefined ? (
     <Loading />
@@ -33,12 +42,16 @@ const SearchPage = () => {
       ) : (
         <>
           <SearchTile>Your Search results: {searchName}</SearchTile>
-          <SearchResults results={searchResponse.results} />)
-          <ButtonPages> hola</ButtonPages>
+          <SearchResults results={searchResponse.results} />
+          <ButtonPages
+            totalPages={searchResponse.total_pages}
+            currentPage={searchResponse.page}
+            searchName={searchName}
+          />
         </>
       )}
     </SearchPageContainer>
-  );
-};
+  )
+}
 
-export default SearchPage;
+export default SearchPage

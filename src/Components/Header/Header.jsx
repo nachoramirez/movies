@@ -28,7 +28,7 @@ const Header = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    history.push(`/search/${value}`);
+    history.push(`/search?q=${value}`);
   };
 
   return (

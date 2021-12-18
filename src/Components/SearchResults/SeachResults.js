@@ -10,5 +10,5 @@ export const SearchResultsContainer = styled.div`
 export const SearchCard = styled.div`
   margin: 20px 7px;
   width: 100%;
-  height: 30vh;
+  height: 34vh;
 `;
