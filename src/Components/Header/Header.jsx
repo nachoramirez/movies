@@ -45,7 +45,7 @@ const Header = () => {
       </NavBarContainer>
       <Search onSubmit={handleSubmit}>
         <SearchInput
-          type4="text"
+          type="text"
           placeholder="Search..."
           onChange={handleChange}
         />

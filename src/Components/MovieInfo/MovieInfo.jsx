@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import {
   MovieInfoContainer,
   Category,
@@ -9,6 +10,8 @@ import {
 } from './MovieInfo'
 
 const MovieInfo = ({ data, videos, credits }) => {
+  const history = useHistory()
+
   const { genres, release_date, runtime } = data
 
   const hours = Math.floor(runtime / 60)
@@ -24,7 +27,11 @@ const MovieInfo = ({ data, videos, credits }) => {
         <div>
           {genres.map((item) => (
             <Category key={item.id}>
-              <CategoryTitle>{item.name}</CategoryTitle>
+              <CategoryTitle
+                onClick={() => history.push(`/genre/${item.name}?q=${item.id}`)}
+              >
+                {item.name}
+              </CategoryTitle>
             </Category>
           ))}
         </div>

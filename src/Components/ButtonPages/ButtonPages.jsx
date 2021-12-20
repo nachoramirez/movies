@@ -6,12 +6,12 @@ import { ButtonPagesContainer, ButtonPage, ButtonArrow } from './ButtonPages.js'
 import LeftButtonArrow from '../../static/LeftButtonArrow.svg'
 import RightButtonArrow from '../../static/RightButtonArrow.svg'
 
-const ButtonPages = ({ totalPages, currentPage, searchName }) => {
+const ButtonPages = ({ totalPages, currentPage, name, pathName }) => {
   const history = useHistory()
 
   var pagesNumber = []
 
-  for (let i = 0; i < totalPages; i++) {
+  for (let i = 0; i < totalPages && i < 10; i++) {
     pagesNumber.push(i + 1)
   }
 
@@ -20,7 +20,7 @@ const ButtonPages = ({ totalPages, currentPage, searchName }) => {
       <ButtonArrow
         onClick={() =>
           currentPage > 1
-            ? history.push(`/search?q=${searchName}&page=${currentPage - 1}`)
+            ? history.push(`/${pathName}?q=${name}&page=${currentPage - 1}`)
             : null
         }
         src={LeftButtonArrow}
@@ -28,7 +28,7 @@ const ButtonPages = ({ totalPages, currentPage, searchName }) => {
 
       {pagesNumber.map((item) => (
         <ButtonPage
-          onClick={() => history.push(`/search?q=${searchName}&page=${item}`)}
+          onClick={() => history.push(`/${pathName}?q=${name}&page=${item}`)}
           selected={currentPage == item}
         >
           {item}
@@ -37,8 +37,8 @@ const ButtonPages = ({ totalPages, currentPage, searchName }) => {
 
       <ButtonArrow
         onClick={() =>
-          currentPage < totalPages
-            ? history.push(`/search?q=${searchName}&page=${currentPage + 1}`)
+          currentPage < totalPages && currentPage < 10
+            ? history.push(`/${pathName}?q=${name}&page=${currentPage + 1}`)
             : null
         }
         src={RightButtonArrow}

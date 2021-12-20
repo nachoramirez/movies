@@ -6,6 +6,7 @@ import GlobalStyle from './GlobalStyle'
 import Home from './Containers/Home/Home.jsx'
 import Movie from './Containers/Movie/Movie.jsx'
 import SearchPage from './Containers/SearchPage/SearchPage.jsx'
+import GenresPage from './Containers/GenresPage/GenresPage.jsx'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/movie/:id" component={Movie} />
           <Route exact path="/search/" component={SearchPage} />
+          <Route exact path="/genre/:id" component={GenresPage} />
         </Switch>
       </BrowserRouter>
     </>

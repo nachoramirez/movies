@@ -1,36 +1,39 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import {
   GenresContainer,
   GenresContent,
   GenresTitle,
   GenreName,
   GenreDivition,
-} from "./Genres";
+} from './Genres'
 
-import useCallApi from "../../hooks/useCallApi";
+import useCallApi from '../../hooks/useCallApi'
 
 const Genres = () => {
-  const [isActive, setIsActive] = useState(false);
-  const ref = useRef(null);
+  const [isActive, setIsActive] = useState(false)
+  const ref = useRef(null)
+
+  const history = useHistory()
 
   useEffect(() => {
     const pageClickEvent = (e) => {
       if (ref.current == null) {
-        setIsActive(!isActive);
+        setIsActive(!isActive)
       }
-    };
+    }
     if (isActive) {
-      window.addEventListener("click", pageClickEvent);
+      window.addEventListener('click', pageClickEvent)
     }
 
     return () => {
-      window.removeEventListener("click", pageClickEvent);
-    };
-  }, [isActive]);
+      window.removeEventListener('click', pageClickEvent)
+    }
+  }, [isActive])
 
   const GenresList = useCallApi({
-    api: "https://api.themoviedb.org/3/genre/movie/list?api_key=ec4b3e3a8cd0222860f2fbc8738e8731",
-  });
+    api: 'https://api.themoviedb.org/3/genre/movie/list?api_key=ec4b3e3a8cd0222860f2fbc8738e8731',
+  })
 
   return GenresList.genres === undefined ? (
     <> </>
@@ -40,13 +43,18 @@ const Genres = () => {
       <GenresContent display={isActive}>
         {GenresList.genres.map((item) => (
           <>
-            <GenreName key={item.id}> {item.name}</GenreName>
+            <GenreName
+              onClick={() => history.push(`/genre/${item.name}?q=${item.id}`)}
+              key={item.id}
+            >
+              {item.name}
+            </GenreName>
             <GenreDivition>|</GenreDivition>
           </>
         ))}
       </GenresContent>
     </GenresContainer>
-  );
-};
+  )
+}
 
-export default Genres;
+export default Genres

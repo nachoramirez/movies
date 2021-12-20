@@ -44,7 +44,8 @@ const SearchPage = () => {
           <ButtonPages
             totalPages={searchResponse.total_pages}
             currentPage={searchResponse.page}
-            searchName={searchName}
+            name={searchName}
+            pathName={'search'}
           />
         </>
       )}
