@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Container } from "../Containers";
 
 export const GenresPageContainer = styled.div`
   width: 80%;
@@ -11,9 +10,4 @@ export const SearchTile = styled.h1`
   align-self: start;
   color: white;
   font-size: 1.9rem;
-`;
-
-export const Image = styled.img`
-  height: 40vh;
-  justify-self: center;
 `;

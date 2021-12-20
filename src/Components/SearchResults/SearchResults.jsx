@@ -7,8 +7,8 @@ const SearchResults = ({ results }) => {
   return (
     <SearchResultsContainer>
       {results.map((item) => (
-        <SearchCard>
-          <MovieCard hover={'carrousel'} key={item.id} data={item} />
+        <SearchCard key={item.id}>
+          <MovieCard hover={'carrousel'}  data={item} />
         </SearchCard>
       ))}
     </SearchResultsContainer>

@@ -36,7 +36,6 @@ const useSlibing = (children, clones) => {
       setTransition(300)
       setActiveDot(0)
       //and then slices to the first item without transition
-      console.log((totalItems / totalInViewport) % 1 === 0)
       setTimeout(() => {
         setTranslate(initialTranslate)
         setTransition(0)

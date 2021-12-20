@@ -6,15 +6,15 @@ import {
   NavBarContainer,
   NavBarItem,
   Logo,
-  HomeLogo,
-  NavBarHome,
+  // HomeLogo,
+  // NavBarHome,
   Search,
   SearchInput,
   SearchButton,
 } from "./Header";
 import Genres from "../Genres/Genres.jsx";
 
-import HomeIcon from "../../static/HomeIcon.svg";
+// import HomeIcon from "../../static/HomeIcon.svg";
 import SearchIcon from "../../static/SearchIcon.svg";
 import LogoImage from "../../static/Logo.svg";
 

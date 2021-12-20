@@ -29,7 +29,8 @@ const ButtonPages = ({ totalPages, currentPage, name, pathName }) => {
       {pagesNumber.map((item) => (
         <ButtonPage
           onClick={() => history.push(`/${pathName}?q=${name}&page=${item}`)}
-          selected={currentPage == item}
+          selected={currentPage === item}
+          key={item}
         >
           {item}
         </ButtonPage>

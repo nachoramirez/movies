@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { GenresPageContainer, SearchTile, Image } from './GenresPage'
+import { GenresPageContainer, SearchTile } from './GenresPage'
 
 import SearchResults from '../../Components/SearchResults/SearchResults.jsx'
 import Loading from '../../Components/Loading/Loading.jsx'
@@ -8,7 +8,7 @@ import ButtonPages from '../../Components/ButtonPages/ButtonPages.jsx'
 import useCallApi from '../../hooks/useCallApi'
 import useQuery from '../../hooks/useQuery'
 
-import LogoSurprised from '../../static/LogoSurprised.svg'
+// import LogoSurprised from '../../static/LogoSurprised.svg'
 
 const GenresPage = () => {
   let query = useQuery()

@@ -1,20 +1,23 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
-const useCallApi = ({ api = "", params = {}, updater = null }) => {
-  const [data, setData] = useState({});
+const useCallApi = ({ api = '', params = {}, updater = null }) => {
+  const [data, setData] = useState({})
 
   try {
-    useEffect(async () => {
-      setData({});
-      const res = await axios.get(api, { params });
-      setData(res.data);
-    }, [updater]);
+    useEffect(() => {
+      const callApi = async () => {
+        setData({})
+        const res = await axios.get(api, { params })
+        setData(res.data)
+      }
+      callApi()
+    }, [updater])
   } catch (err) {
-    setData(err);
+    setData(err)
   }
 
-  return data;
-};
+  return data
+}
 
-export default useCallApi;
+export default useCallApi

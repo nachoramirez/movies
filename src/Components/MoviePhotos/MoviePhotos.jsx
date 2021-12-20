@@ -11,7 +11,7 @@ const MoviePhotos = ({ photos }) => {
       <MoviePhotosTitle> Photos</MoviePhotosTitle>
       <MoviePhotosContainer>
         {photos.map((item) => (
-          <MovieImages ley={item.id} img={`https://image.tmdb.org/t/p/original${item.file_path}`} />
+          <MovieImages key={item.file_path} img={`https://image.tmdb.org/t/p/original${item.file_path}`} />
         ))}
       </MoviePhotosContainer>
     </>

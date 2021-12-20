@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Container } from "../Containers";
 
 export const SearchPageContainer = styled.div`
   width: 80%;

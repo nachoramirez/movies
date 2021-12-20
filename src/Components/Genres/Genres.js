@@ -6,7 +6,7 @@ export const GenresContainer = styled.div`
 `
 export const GenresContent = styled.div`
   position: absolute;
-  display: ${(props) => (props.display ? 'flex' : 'none')};
+  display: ${(props) => (props.isActive ? 'flex' : 'none')};
   width: 600px;
   justify-content: space-around;
   align-self: center;

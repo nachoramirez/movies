@@ -19,7 +19,7 @@ const MovieInfo = ({ data, videos, credits }) => {
 
   const { cast, crew } = credits
 
-  const director = crew.find((element) => element.job == 'Director')
+  const director = crew.find((element) => element.job === 'Director')
 
   return (
     <MovieInfoContainer>

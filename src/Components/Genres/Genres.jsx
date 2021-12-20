@@ -40,17 +40,17 @@ const Genres = () => {
   ) : (
     <GenresContainer onClick={() => setIsActive(!isActive)}>
       <GenresTitle isActive={isActive}> Genres</GenresTitle>
-      <GenresContent display={isActive}>
+      <GenresContent isActive={isActive}>
         {GenresList.genres.map((item) => (
-          <>
+          <React.Fragment key={item.id}>
             <GenreName
               onClick={() => history.push(`/genre/${item.name}?q=${item.id}`)}
-              key={item.id}
+              
             >
               {item.name}
             </GenreName>
             <GenreDivition>|</GenreDivition>
-          </>
+          </React.Fragment>
         ))}
       </GenresContent>
     </GenresContainer>
