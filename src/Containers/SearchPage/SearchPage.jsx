@@ -11,6 +11,7 @@ import useQuery from '../../hooks/useQuery'
 import LogoSurprised from '../../static/LogoSurprised.svg'
 
 const SearchPage = () => {
+  window.scrollTo(0, 0)
   let query = useQuery()
   const history = useHistory()
 

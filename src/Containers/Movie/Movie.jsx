@@ -10,6 +10,7 @@ import Loading from "../../Components/Loading/Loading.jsx";
 import useCallApi from "../../hooks/useCallApi.js";
 
 const Movie = () => {
+  window.scrollTo(0,0)
   const history = useHistory();
   const path = history.location.pathname;
 

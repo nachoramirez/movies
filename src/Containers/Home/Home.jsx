@@ -6,6 +6,7 @@ import Loading from "../../Components/Loading/Loading.jsx";
 import CarroselContainer from "../CarrouselContainer/CarrouselContainer.jsx";
 
 const Home = () => {
+  window.scrollTo(0,0)
   const nowPlaying = useCallApi({
     api: "https://api.themoviedb.org/3/movie/now_playing?api_key=ec4b3e3a8cd0222860f2fbc8738e8731",
     params: {},
