@@ -39,7 +39,7 @@ const Header = () => {
           <HomeLogo src={HomeIcon} />
           <NavBarItem>Home</NavBarItem>
         </NavBarHome> */}
-        <NavBarItem>Premiere</NavBarItem>
+        <NavBarItem onClick={() => history.push('/premiere/')}>Premiere</NavBarItem>
         <NavBarItem onClick={() => history.push('/series/')}>Series</NavBarItem>
         <Genres>Genres</Genres>
       </NavBarContainer>

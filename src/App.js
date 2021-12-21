@@ -8,6 +8,7 @@ import Movie from './Containers/Movie/Movie.jsx'
 import SearchPage from './Containers/SearchPage/SearchPage.jsx'
 import GenresPage from './Containers/GenresPage/GenresPage.jsx'
 import Series from './Containers/Series/Series.jsx'
+import Premiere from './Containers/Premiere/Premiere.jsx'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route exact path="/search/" component={SearchPage} />
           <Route exact path="/genre/:id" component={GenresPage} />
           <Route exact path="/series/" component={Series} />
+          <Route exact path='/premiere' component={Premiere} />
         </Switch>
       </BrowserRouter>
     </>
