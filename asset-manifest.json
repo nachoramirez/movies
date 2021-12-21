@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "/movies/static/js/main.d8b27403.js",
+    "static/media/ImageNotFound.svg": "/movies/static/media/ImageNotFound.2cfbab9f59b81a52a6578bdd5d87a63b.svg",
+    "static/media/LogoSurprised.svg": "/movies/static/media/LogoSurprised.50417ed70f1d5ef90249e8457b9ea15f.svg",
+    "static/media/Logo.svg": "/movies/static/media/Logo.2f7987c62de2da5941c55ec1c44fa126.svg",
+    "index.html": "/movies/index.html",
+    "static/media/SearchIcon.svg": "/movies/static/media/SearchIcon.83b6f1f92d9ed5c6eb04b3529546ca5e.svg",
+    "static/media/LeftArrow.svg": "/movies/static/media/LeftArrow.eb9ea05c976d18a854d513e6faabc0ff.svg",
+    "static/media/LeftCarrousel.svg": "/movies/static/media/LeftCarrousel.90ade4edf8392327bcf302b512342bec.svg",
+    "static/media/RightCarrousel.svg": "/movies/static/media/RightCarrousel.b8a72561db665470292f4aeb70af3152.svg",
+    "static/media/Star.svg": "/movies/static/media/Star.fed40513999482344c578999d5957628.svg",
+    "static/media/RightButtonArrow.svg": "/movies/static/media/RightButtonArrow.94b880b5f7d949c8d4cfa51456a39a47.svg",
+    "static/media/RightArrow.svg": "/movies/static/media/RightArrow.3aff073451301f160fdf01f906d426dd.svg",
+    "static/media/LeftButtonArrow.svg": "/movies/static/media/LeftButtonArrow.f75df27edf096fc9c49220d7c0bd6b07.svg",
+    "main.d8b27403.js.map": "/movies/static/js/main.d8b27403.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.d8b27403.js"
+  ]
+}
