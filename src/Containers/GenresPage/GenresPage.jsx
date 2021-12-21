@@ -11,18 +11,22 @@ import useQuery from '../../hooks/useQuery'
 // import LogoSurprised from '../../static/LogoSurprised.svg'
 
 const GenresPage = () => {
-  window.scrollTo(0,0)
+  window.scrollTo(0, 0)
   let query = useQuery()
   const history = useHistory()
 
   const genreId = query.get('q')
   const page = query.get('page')
-  const API = 'https://api.themoviedb.org/3/discover/movie'
+  const isTv = query.get('tv')
+
+
+  const movieAPI = 'https://api.themoviedb.org/3/discover/movie'
+  const tvAPI = 'https://api.themoviedb.org/3/discover/tv'
 
   const genreName = history.location.pathname.substring(7)
 
   const genreResponse = useCallApi({
-    api: API,
+    api: isTv ? tvAPI : movieAPI,
     params: {
       api_key: 'ec4b3e3a8cd0222860f2fbc8738e8731',
       with_genres: genreId,
@@ -30,7 +34,6 @@ const GenresPage = () => {
     },
     updater: history.location.search,
   })
-
 
   return genreResponse.results === undefined ? (
     <Loading />

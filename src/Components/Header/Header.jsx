@@ -40,7 +40,7 @@ const Header = () => {
           <NavBarItem>Home</NavBarItem>
         </NavBarHome> */}
         <NavBarItem>Premiere</NavBarItem>
-        <NavBarItem>Series</NavBarItem>
+        <NavBarItem onClick={() => history.push('/series/')}>Series</NavBarItem>
         <Genres>Genres</Genres>
       </NavBarContainer>
       <Search onSubmit={handleSubmit}>

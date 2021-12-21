@@ -7,6 +7,7 @@ import Home from './Containers/Home/Home.jsx'
 import Movie from './Containers/Movie/Movie.jsx'
 import SearchPage from './Containers/SearchPage/SearchPage.jsx'
 import GenresPage from './Containers/GenresPage/GenresPage.jsx'
+import Series from './Containers/Series/Series.jsx'
 
 const App = () => {
   return (
@@ -17,8 +18,10 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/movie/:id" component={Movie} />
+          <Route exact path="/tv/:id" component={Movie} />
           <Route exact path="/search/" component={SearchPage} />
           <Route exact path="/genre/:id" component={GenresPage} />
+          <Route exact path="/series/" component={Series} />
         </Switch>
       </BrowserRouter>
     </>

@@ -13,7 +13,7 @@ const Movie = () => {
   window.scrollTo(0,0)
   const history = useHistory();
   const path = history.location.pathname;
-
+  
   //the second value is the useEffect updater
   const data = useCallApi({
     api: `https://api.themoviedb.org/3${history.location.pathname}`,

@@ -15,18 +15,19 @@ import StarIcon from '../../static/Star.svg'
 const MovieCard = ({ data }) => {
   const history = useHistory()
 
-  const { id, title, vote_average, poster_path } = data
+  const { id, title, vote_average, poster_path, name } = data
 
   const image = poster_path
     ? `https://image.tmdb.org/t/p/w500/${poster_path}`
     : ImageNotFound
+
   return (
     <MovieCardContainer
-      onClick={() => history.push(`/movie/${id}`)}
+      onClick={() =>name === undefined ? history.push(`/movie/${id}`) : history.push(`/tv/${id}`) }
       image={image}
     >
       <ItemInfo>
-        <ItemTitle>{title} </ItemTitle>
+        <ItemTitle>{title || name} </ItemTitle>
 
         <ItemRating>
           <ItemRatingImage src={StarIcon} />
