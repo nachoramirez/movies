@@ -44,7 +44,7 @@ const Genres = () => {
         {GenresList.genres.map((item) => (
           <React.Fragment key={item.id}>
             <GenreName
-              onClick={() => history.push(`/genre/${item.name}?q=${item.id}`)}
+              onClick={() => history.push(`/movies/genre/${item.name}?q=${item.id}`)}
               
             >
               {item.name}

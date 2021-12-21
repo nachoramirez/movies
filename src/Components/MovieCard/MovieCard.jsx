@@ -23,7 +23,11 @@ const MovieCard = ({ data }) => {
 
   return (
     <MovieCardContainer
-      onClick={() =>name === undefined ? history.push(`/movie/${id}`) : history.push(`/tv/${id}`) }
+      onClick={() =>
+        name === undefined
+          ? history.push(`/movies/movie/${id}`)
+          : history.push(`/movies/tv/${id}`)
+      }
       image={image}
     >
       <ItemInfo>

@@ -30,7 +30,7 @@ export const SliderItem = ({ data }) => {
           <SliderNumbersValues>{vote_average}</SliderNumbersValues>
           <SliderNumbersValues> {release_date}</SliderNumbersValues>
         </SliderNumbers>
-        <ViewMoreButton onClick={() => history.push(`/movie/${id}`)}>
+        <ViewMoreButton onClick={() => history.push(`/movies/movie/${id}`)}>
           View More
         </ViewMoreButton>
       </SliderInfo>

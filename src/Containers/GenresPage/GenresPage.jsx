@@ -23,7 +23,7 @@ const GenresPage = () => {
   const movieAPI = 'https://api.themoviedb.org/3/discover/movie'
   const tvAPI = 'https://api.themoviedb.org/3/discover/tv'
 
-  const genreName = history.location.pathname.substring(7)
+  const genreName = history.location.pathname.substring(14)
 
   const genreResponse = useCallApi({
     api: isTv ? tvAPI : movieAPI,

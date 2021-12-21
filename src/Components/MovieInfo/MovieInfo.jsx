@@ -29,17 +29,18 @@ const MovieInfo = ({ data, videos, credits }) => {
       <MoreInfoContainer>
         <div>
           {genres.map((item) => (
-            <Category key={item.id}>
-              <CategoryTitle
-                onClick={() => history.push(`/genre/${item.name}?q=${item.id}${isTv}`)}
-              >
-                {item.name}
-              </CategoryTitle>
+            <Category
+              key={item.id}
+              onClick={() =>
+                history.push(`/movies/genre/${item.name}?q=${item.id}${isTv}`)
+              }
+            >
+              <CategoryTitle>{item.name}</CategoryTitle>
             </Category>
           ))}
         </div>
         <Info>Premiere: {first_air_date || release_date}</Info>
-       {/* if has a number_of_episodes it's a serie so show the number of episode but 
+        {/* if has a number_of_episodes it's a serie so show the number of episode but 
        if number_of_episodes is undefined it's a movie so show the duration  */}
 
         {number_of_episodes === undefined ? (
@@ -61,7 +62,7 @@ const MovieInfo = ({ data, videos, credits }) => {
           height="300"
           width="100%"
           src={`https://www.youtube.com/embed/${
-            videos.results[0] !== undefined  && videos.results[0].key
+            videos.results[0] !== undefined && videos.results[0].key
           }
             `}
           title="YouTube video player"

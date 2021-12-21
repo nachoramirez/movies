@@ -12,11 +12,10 @@ import useCallApi from "../../hooks/useCallApi.js";
 const Movie = () => {
   window.scrollTo(0,0)
   const history = useHistory();
-  const path = history.location.pathname;
-  
+  const path = history.location.pathname.substring(7);
   //the second value is the useEffect updater
   const data = useCallApi({
-    api: `https://api.themoviedb.org/3${history.location.pathname}`,
+    api: `https://api.themoviedb.org/3${path}`,
     updater: path,
     params: {
       api_key: 'ec4b3e3a8cd0222860f2fbc8738e8731',

@@ -28,19 +28,19 @@ const Header = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    history.push(`/search?q=${value}`);
+    history.push(`/movies/search?q=${value}`);
   };
 
   return (
     <HeaderContainer>
-      <Logo onClick={() => history.push("/")} src={LogoImage} />
+      <Logo onClick={() => history.push("/movies")} src={LogoImage} />
       <NavBarContainer>
         {/* <NavBarHome onClick={() => history.push('/')}>
           <HomeLogo src={HomeIcon} />
           <NavBarItem>Home</NavBarItem>
         </NavBarHome> */}
-        <NavBarItem onClick={() => history.push('/premiere/')}>Premiere</NavBarItem>
-        <NavBarItem onClick={() => history.push('/series/')}>Series</NavBarItem>
+        <NavBarItem onClick={() => history.push('/movies/premiere/')}>Premiere</NavBarItem>
+        <NavBarItem onClick={() => history.push('/movies/series/')}>Series</NavBarItem>
         <Genres>Genres</Genres>
       </NavBarContainer>
       <Search onSubmit={handleSubmit}>

@@ -20,7 +20,7 @@ const ButtonPages = ({ totalPages, currentPage, name, pathName }) => {
       <ButtonArrow
         onClick={() =>
           currentPage > 1
-            ? history.push(`/${pathName}?q=${name}&page=${currentPage - 1}`)
+            ? history.push(`/movies/${pathName}?q=${name}&page=${currentPage - 1}`)
             : null
         }
         src={LeftButtonArrow}
@@ -28,7 +28,7 @@ const ButtonPages = ({ totalPages, currentPage, name, pathName }) => {
 
       {pagesNumber.map((item) => (
         <ButtonPage
-          onClick={() => history.push(`/${pathName}?q=${name}&page=${item}`)}
+          onClick={() => history.push(`/movies/${pathName}?q=${name}&page=${item}`)}
           selected={currentPage === item}
           key={item}
         >
@@ -39,7 +39,7 @@ const ButtonPages = ({ totalPages, currentPage, name, pathName }) => {
       <ButtonArrow
         onClick={() =>
           currentPage < totalPages && currentPage < 10
-            ? history.push(`/${pathName}?q=${name}&page=${currentPage + 1}`)
+            ? history.push(`/movies/${pathName}?q=${name}&page=${currentPage + 1}`)
             : null
         }
         src={RightButtonArrow}
