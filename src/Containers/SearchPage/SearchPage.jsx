@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { SearchPageContainer, SearchTile, Image } from './SearchPage'
+import { Container } from '../Containers'
 
 import SearchResults from '../../Components/SearchResults/SearchResults.jsx'
 import Loading from '../../Components/Loading/Loading.jsx'
@@ -34,10 +35,10 @@ const SearchPage = () => {
   ) : (
     <SearchPageContainer>
       {searchResponse.results.length === 0 ? (
-        <SearchPageContainer>
+        <Container column>
           <Image src={LogoSurprised} />
-          <SearchTile> Not results for the search: {searchName}</SearchTile>
-        </SearchPageContainer>
+          <SearchTile center> Not results for the search: {searchName}</SearchTile>
+        </Container>
       ) : (
         <>
           <SearchTile>Your Search results: {searchName}</SearchTile>

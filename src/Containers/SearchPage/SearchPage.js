@@ -7,7 +7,7 @@ export const SearchPageContainer = styled.div`
 
 export const SearchTile = styled.h1`
   padding-left: 20px;
-  align-self: start;
+  align-self: ${props => props.center ? 'center':'start'};
   color: white;
   font-size: 1.9rem;
 `;
