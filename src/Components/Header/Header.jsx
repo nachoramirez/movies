@@ -20,7 +20,7 @@ import LogoImage from "../../static/Logo.svg";
 
 const Header = () => {
   const history = useHistory();
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('');
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -28,7 +28,7 @@ const Header = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    history.push(`/movies/search?q=${value}`);
+    value !== '' && history.push(`/movies/search?q=${value}`);
   };
 
   return (
