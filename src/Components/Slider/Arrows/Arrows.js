@@ -13,6 +13,11 @@ export const ArrowsContainer = styled.div`
   &:hover {
     transform: scale(1.1);
   }
+
+  @media (max-width: 768px){
+    visibility: hidden;
+    z-index:  10;
+  }
 `
 
 export const ArrowImage = styled.img`

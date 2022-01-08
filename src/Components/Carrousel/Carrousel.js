@@ -12,6 +12,10 @@ export const CarrouselWrapper = styled.div`
   transform: translate3d(${(props) => -props.distance}px, 0, 0);
   transition: transform ${(props) => props.transition}ms
     cubic-bezier(0.64, -0.04, 0.26, 0.94);
+
+  @media (max-width: 768px) {
+    height: 270px;
+  }
 `
 export const CarrouselArrows = styled.img`
   position: absolute;

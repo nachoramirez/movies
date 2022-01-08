@@ -6,7 +6,8 @@ export const HeaderContainer = styled(Container)`
   color: #9bf2d6;
   justify-content: space-between;
   padding: 4px 10px;
-  margin: 10px 0 ;
+  margin: 10px 0;
+  
 `
 export const NavBarContainer = styled(Container)`
   justify-content: right;
@@ -55,6 +56,10 @@ export const Search = styled.form`
   border: 2px solid #9bf2d6;
   border-radius: 45px;
   background: none;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 export const SearchInput = styled.input`

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 
 const useSlibing = (children, clones) => {
-  const ItemWidth = 250 + 20
   const getWindowWidth = () => window.innerWidth
+
+  
+  const ItemWidth = getWindowWidth() >= 768 ? 250 + 20 : 150 + 20
   const initialTranslate = (clones - 1) * ItemWidth
   const [viewed, setViewed] = useState(0)
   const [transition, setTransition] = useState(300)
@@ -37,8 +39,8 @@ const useSlibing = (children, clones) => {
       setActiveDot(0)
       //and then slices to the first item without transition
       setTimeout(() => {
-        setTranslate(initialTranslate)
         setTransition(0)
+        setTranslate(initialTranslate)
         setViewed(0)
       }, 300)
     }

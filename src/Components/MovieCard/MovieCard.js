@@ -31,6 +31,12 @@ export const MovieCardContainer = styled(Container)`
   &:hover ~ & {
     transform: translate3d(20%, 0, 0);
   }
+
+  @media (max-width: 768px) {
+    flex: 0 0 150px;
+    height: 100%;
+    border-radius: 20px;
+  }
 `
 
 export const ItemInfo = styled.div`
@@ -44,12 +50,12 @@ export const ItemTitle = styled.h1`
   font-size: 1.4rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;  
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 `
 export const ItemRatingImage = styled.img`
-    height: 30px;
+  height: 30px;
 `
 
 export const ItemRating = styled.div`

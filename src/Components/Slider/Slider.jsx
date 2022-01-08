@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { SliderContainer, SliderContent, Dot, DotsContainer } from './Slider'
 import SliderItem from '../SliderItem/SliderItem.jsx'
 import Arrows from './Arrows/Arrows.jsx'
+import { useSwipeable } from 'react-swipeable'
 
 const Slider = ({ slideItems }) => {
   const getWidth = () => window.innerWidth
@@ -41,8 +42,14 @@ const Slider = ({ slideItems }) => {
     )
   }
 
+  const handelers = useSwipeable({
+    onSwipedLeft: () => nextSlide(),
+    onSwipedRight: () => prevSlide(),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  })
   return (
-    <SliderContainer>
+    <SliderContainer {...handelers}>
       <SliderContent
         translate={translate}
         transition={transition}
