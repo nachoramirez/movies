@@ -11,8 +11,10 @@ import LeftCarrousel from '../../static/LeftCarrousel.svg'
 
 import useSlibing from '../../hooks/useSliding'
 
-const Carrousel = ({ children }) => {
+const Carrousel = ({ children, width }) => {
+  const getWindowWidth = () => window.innerWidth
   const clones = 7
+
   const {
     handleDots,
     handleNext,
@@ -21,14 +23,13 @@ const Carrousel = ({ children }) => {
     transition,
     dotsToShow,
     activeDot,
-  } = useSlibing(children,clones)
+  } = useSlibing(children, clones, width)
 
   //gets the first elements to clone
   const fisrtChildrens = React.Children.toArray(children.slice(0, clones))
   const lastChildrens = React.Children.toArray(
     children.slice(React.Children.toArray.length - clones)
   )
-
 
   return (
     <CarrouselContainer>
@@ -48,7 +49,11 @@ const Carrousel = ({ children }) => {
       <CarrouselArrows src={LeftCarrousel} onClick={handlePrev} />
       <CarrouselDotsContainer>
         {dotsToShow.map((item) => (
-          <CarrouselDot onClick={() =>handleDots(item)}key={item} selected={item === activeDot} />
+          <CarrouselDot
+            onClick={() => handleDots(item)}
+            key={item}
+            selected={item === activeDot}
+          />
         ))}
       </CarrouselDotsContainer>
     </CarrouselContainer>

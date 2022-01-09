@@ -32,7 +32,7 @@ const Movie = () => {
       {data.images.backdrops.length > 0 && (
         <MoviePhotos photos={data.images.backdrops.slice(0, 5)} />
       )}
-      <CarrouselContainter name="Similar" data={data.similar.results} />
+      <CarrouselContainter width={true} name="Similar" data={data.similar.results} />
     </>
   )
 }

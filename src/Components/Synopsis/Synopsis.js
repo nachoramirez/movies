@@ -14,10 +14,19 @@ export const SynopsisContainer = styled(Container)`
   color: white;
   padding: 40px;
   text-align: justify;
+
+  @media (max-width: 768px){
+    background-position: center;
+    margin: 0;
+  }
 `
 export const MovieTitle = styled.h1`
   margin: 0;
   font-size: 2.9rem;
+
+  @media (max-width: 768px){
+    text-align: left;
+  }
 `
 
 export const MovieSynopsis = styled.p`

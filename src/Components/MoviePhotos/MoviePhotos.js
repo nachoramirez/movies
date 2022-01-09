@@ -4,6 +4,10 @@ import { Container } from '../../Containers/Containers'
 export const MoviePhotosContainer = styled(Container)`
   margin: 10px;
   justify-content: flex-start;
+
+  @media (max-width:768px){
+    flex-direction: column;
+  }
 `
 
 export const MovieImages = styled.div`
@@ -14,6 +18,11 @@ export const MovieImages = styled.div`
   background-image: url(${(props) => props.img});
   background-size: cover;
   background-position: center;
+
+  @media (max-width: 768px){
+    margin: 20px;
+  }
+
 `
 
 export const MoviePhotosTitle = styled.h1`

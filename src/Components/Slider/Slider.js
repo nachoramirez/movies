@@ -7,18 +7,21 @@ export const SliderContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   filter: drop-shadow(0px 9px 4px rgba(0, 0, 0, 0.25));
+  @media (max-width: 768px) {
+    height: 90vh;
+  }
 `
 
 export const SliderContent = styled.div`
-  transform: translateX(-${(props) => props.translate}px );
+  transform: translateX(-${(props) => props.translate}px);
   transition: transform ease-in-out ${(props) => props.transition}s;
   height: 100%;
-  width: ${props => props.width}px;
-  display:flex;
+  width: ${(props) => props.width}px;
+  display: flex;
 `
 
 export const Dot = styled.span`
-  padding: ${props => props.active ? '5px 20px' : '3px 10px '};
+  padding: ${(props) => (props.active ? '5px 20px' : '3px 10px ')};
   margin-right: 10px;
   cursor: pointer;
   border-radius: 20px;

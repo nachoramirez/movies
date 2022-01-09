@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
-const useSlibing = (children, clones) => {
+const useSlibing = (children, clones, width) => {
   const getWindowWidth = () => window.innerWidth
 
-  
-  const ItemWidth = getWindowWidth() >= 768 ? 250 + 20 : 150 + 20
+  const ItemWidth =
+    getWindowWidth() >= 768 ? 250 + 20 : width ? 160 + 20 : 150 + 20
   const initialTranslate = (clones - 1) * ItemWidth
   const [viewed, setViewed] = useState(0)
   const [transition, setTransition] = useState(300)
