@@ -36,6 +36,10 @@ export const MovieCardContainer = styled(Container)`
     flex: 0 0 150px;
     height: 100%;
     border-radius: 20px;
+
+    &:hover {
+      transform: none;
+    }
   }
 `
 

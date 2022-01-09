@@ -11,13 +11,18 @@ export const ButtonPage = styled.h1`
   width: 20px;
   height: 20px;
   font-size: 20px;
-  padding: 10px ;
+  padding: 10px;
   text-align: center;
   background: rgba(0, 160, 122, 0.35);
   border-radius: 100%;
-  border: ${(props) => (props.selected ? 'solid white 2px' : 'rgba(0, 160, 122, 0.35)')};
+  border: ${(props) =>
+    props.selected ? 'solid white 2px' : 'rgba(0, 160, 122, 0.35)'};
   cursor: pointer;
   margin: 40px 5px;
+
+  @media (max-width: 768px) {
+    display: ${(props) => (props.selected ? 'block' : 'none')};
+  }
 `
 
 export const ButtonArrow = styled.img`
