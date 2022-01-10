@@ -10,7 +10,7 @@ import {
 
 import useCallApi from '../../hooks/useCallApi'
 
-const Genres = () => {
+const Genres = ({ openFunction, isOpen }) => {
   const [isActive, setIsActive] = useState(false)
   const ref = useRef(null)
 
@@ -36,7 +36,7 @@ const Genres = () => {
   })
 
   return GenresList.genres === undefined ? (
-    <> </>
+    <GenresTitle> Genres</GenresTitle>
   ) : (
     <GenresContainer onClick={() => setIsActive(!isActive)}>
       <GenresTitle isActive={isActive}> Genres</GenresTitle>
@@ -44,8 +44,10 @@ const Genres = () => {
         {GenresList.genres.map((item) => (
           <React.Fragment key={item.id}>
             <GenreName
-              onClick={() => history.push(`/movies/genre/${item.name}?q=${item.id}`)}
-              
+              onClick={() => {
+                openFunction(!isOpen)
+                history.push(`/movies/genre/${item.name}?q=${item.id}`)
+              }}
             >
               {item.name}
             </GenreName>

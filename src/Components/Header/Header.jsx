@@ -1,49 +1,64 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import {
   HeaderContainer,
   NavBarContainer,
   NavBarItem,
   Logo,
-  // HomeLogo,
-  // NavBarHome,
+  MenuButton,
   Search,
   SearchInput,
   SearchButton,
-} from "./Header";
-import Genres from "../Genres/Genres.jsx";
+} from './Header'
 
-// import HomeIcon from "../../static/HomeIcon.svg";
-import SearchIcon from "../../static/SearchIcon.svg";
-import LogoImage from "../../static/Logo.svg";
+import Genres from '../Genres/Genres.jsx'
+
+import SearchIcon from '../../static/SearchIcon.svg'
+import LogoImage from '../../static/Logo.svg'
+import MenuIcon from '../../static/MenuIcon.svg'
+import Close from '../../static/Close.svg'
 
 const Header = () => {
-  const history = useHistory();
-  const [value, setValue] = useState('');
+  const history = useHistory()
+  const [value, setValue] = useState('')
+  const [isOpen, setIsOpen] = useState(false)
 
   const handleChange = (event) => {
-    setValue(event.target.value);
-  };
+    setValue(event.target.value)
+  }
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    value !== '' && history.push(`/movies/search?q=${value}`);
-  };
+    event.preventDefault()
+    value !== '' && history.push(`/movies/search?q=${value}`)
+    setIsOpen(false)
+  }
 
   return (
     <HeaderContainer>
-      <Logo onClick={() => history.push("/movies")} src={LogoImage} />
-      <NavBarContainer>
-        {/* <NavBarHome onClick={() => history.push('/')}>
-          <HomeLogo src={HomeIcon} />
-          <NavBarItem>Home</NavBarItem>
-        </NavBarHome> */}
-        <NavBarItem onClick={() => history.push('/movies/premiere/')}>Premiere</NavBarItem>
-        <NavBarItem onClick={() => history.push('/movies/series/')}>Series</NavBarItem>
-        <Genres>Genres</Genres>
+      <Logo onClick={() => history.push('/movies')} src={LogoImage} />
+      <NavBarContainer isOpen={isOpen}>
+        <NavBarItem
+          onClick={() => {
+            setIsOpen(false)
+            history.push('/movies/premiere/')
+          }}
+        >
+          Premiere
+        </NavBarItem>
+        <NavBarItem
+          onClick={() => {
+            setIsOpen(false)
+            history.push('/movies/series/')
+          }}
+        >
+          Series
+        </NavBarItem>
+        <Genres isOpen={isOpen} openFunction={setIsOpen}>
+          Genres
+        </Genres>
       </NavBarContainer>
-      <Search onSubmit={handleSubmit}>
+      <Search isOpen={isOpen} onSubmit={handleSubmit}>
         <SearchInput
           type="text"
           placeholder="Search..."
@@ -51,8 +66,12 @@ const Header = () => {
         />
         <SearchButton src={SearchIcon} type="image" onClick={handleSubmit} />
       </Search>
+      <MenuButton
+        onClick={() => setIsOpen(!isOpen)}
+        src={isOpen ? Close : MenuIcon}
+      />
     </HeaderContainer>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
