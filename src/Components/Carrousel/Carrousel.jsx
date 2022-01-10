@@ -8,6 +8,7 @@ import {
 } from './Carrousel'
 import RightCarrousel from '../../static/RightCarrousel.svg'
 import LeftCarrousel from '../../static/LeftCarrousel.svg'
+import { useSwipeable } from 'react-swipeable'
 
 import useSlibing from '../../hooks/useSliding'
 
@@ -31,8 +32,15 @@ const Carrousel = ({ children, width }) => {
     children.slice(React.Children.toArray.length - clones)
   )
 
+  const handelers = useSwipeable({
+    onSwipedLeft: () => handleNext(),
+    onSwipedRight: () => handlePrev(),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  })
+
   return (
-    <CarrouselContainer>
+    <CarrouselContainer { ...handelers}>
       <CarrouselWrapper transition={transition} distance={translate}>
         {lastChildrens.map((item) => React.cloneElement(item))}
         {children}
